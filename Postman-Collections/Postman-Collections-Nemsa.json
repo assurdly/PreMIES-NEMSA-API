@@ -14,7 +14,7 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "d0f7cd97-ccb8-42f4-aa55-8dd1fb660b20",
+								"id": "ea0c5529-4238-43ce-b539-9038dc0ad55f",
 								"exec": [
 									"const jsonData = pm.response.json();\r",
 									"pm.test(\"Status code is 200\", () => {\r",
@@ -32,7 +32,7 @@
 									"    pm.expect(jsonData.tokenType).to.exist;\r",
 									"});\r",
 									"pm.test(\"set accessToken as collection variable\", function (){\r",
-									"    pm.collectionVariables.set(\"accessToken\", jsonData.accessToken);\r",
+									"    pm.collectionVariables.set(\"nemsa-accessToken\", jsonData.accessToken);\r",
 									"})"
 								],
 								"type": "text/javascript",
@@ -2098,7 +2098,7 @@
 		{
 			"listen": "prerequest",
 			"script": {
-				"id": "b52d0d3a-a474-4b5a-83c1-fca7badc19cc",
+				"id": "86a5d9db-4b1b-4e89-96a1-da197e0dc568",
 				"type": "text/javascript",
 				"packages": {},
 				"exec": [
@@ -2109,7 +2109,7 @@
 		{
 			"listen": "test",
 			"script": {
-				"id": "e13059b1-1873-455c-9783-ea23df1c8eae",
+				"id": "d06efd68-7f57-4b49-9c90-71821fa448f0",
 				"type": "text/javascript",
 				"packages": {},
 				"exec": [
@@ -2125,8 +2125,7 @@
 		},
 		{
 			"key": "baseUrl",
-			"value": "",
-			"type": "string"
+			"value": ""
 		}
 	]
 }
