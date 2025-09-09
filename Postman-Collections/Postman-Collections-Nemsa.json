@@ -1,0 +1,2138 @@
+{
+	"info": {
+		"_postman_id": "8c9ec068-c78d-4d9f-b901-0789e69de84d",
+		"name": "NEMSA",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Authorize",
+			"item": [
+				{
+					"name": "authorize",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "d0f7cd97-ccb8-42f4-aa55-8dd1fb660b20",
+								"exec": [
+									"const jsonData = pm.response.json();\r",
+									"pm.test(\"Status code is 200\", () => {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Has required keys\", () => {\r",
+									"    pm.expect(jsonData).to.have.keys([\r",
+									"        \"tokenType\", \"accessToken\", \"expiresIn\", \"refreshToken\"\r",
+									"    ]);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Check response values\", () => {\r",
+									"    pm.expect(jsonData.accessToken).to.exist;\r",
+									"    pm.expect(jsonData.tokenType).to.exist;\r",
+									"});\r",
+									"pm.test(\"set accessToken as collection variable\", function (){\r",
+									"    pm.collectionVariables.set(\"accessToken\", jsonData.accessToken);\r",
+									"})"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"id": "b975591c-bfc7-4304-bada-72a904ca3488",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"username\": \"opossum7890@mailshan.com\",\n    \"password\": \"RJcwy)SEV98-m?&\"\n}",
+							"options": {
+								"raw": {
+									"headerFamily": "json",
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{baseUrl}}/api/authentication/authorize"
+					},
+					"response": [
+						{
+							"id": "bfe0216e-ab0a-4e0c-81e0-c9023965df87",
+							"name": "OK",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"password\": \"string\",\n  \"username\": \"string\",\n  \"passcode\": \"string\",\n  \"usertype\": \"string\",\n  \"devicetype\": \"string\",\n  \"ipaddress\": \"string\"\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{baseUrl}}/api/authentication/authorize"
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "text",
+							"header": [],
+							"cookie": [],
+							"responseTime": null,
+							"body": ""
+						}
+					]
+				},
+				{
+					"name": "Invalid authorize password",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "d0f7cd97-ccb8-42f4-aa55-8dd1fb660b20",
+								"exec": [
+									"const jsonData = pm.response.json();\r",
+									"pm.test(\"Status code is 200\", () => {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Has required keys\", () => {\r",
+									"    pm.expect(jsonData).to.have.keys([\r",
+									"        \"tokenType\", \"accessToken\", \"expiresIn\", \"refreshToken\"\r",
+									"    ]);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Check response values\", () => {\r",
+									"    pm.expect(jsonData.accessToken).to.exist;\r",
+									"    pm.expect(jsonData.tokenType).to.exist;\r",
+									"});\r",
+									"pm.test(\"set accessToken as collection variable\", function (){\r",
+									"    pm.collectionVariables.set(\"accessToken\", jsonData.accessToken);\r",
+									"})"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"id": "67fe5799-8a94-4110-bc2d-e66dbb4c095c",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"username\": \"opossum7890@mailshan.com\",\n    \"password\": \"RJcwy)tEV98-m?&\"\n}",
+							"options": {
+								"raw": {
+									"headerFamily": "json",
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{baseUrl}}/api/authentication/authorize"
+					},
+					"response": [
+						{
+							"id": "e9bd6660-383a-4643-b114-b140d3105397",
+							"name": "OK",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"password\": \"string\",\n  \"username\": \"string\",\n  \"passcode\": \"string\",\n  \"usertype\": \"string\",\n  \"devicetype\": \"string\",\n  \"ipaddress\": \"string\"\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{baseUrl}}/api/authentication/authorize"
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "text",
+							"header": [],
+							"cookie": [],
+							"responseTime": null,
+							"body": ""
+						}
+					]
+				}
+			],
+			"id": "959b5898-22af-4066-8a15-d5f73d4e011d"
+		},
+		{
+			"name": "Login",
+			"item": [
+				{
+					"name": "login Successful",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "822c9157-179f-4850-8b85-1ef096c1fe3f",
+								"exec": [
+									"const jsonData = pm.response.json();\r",
+									"\r",
+									"pm.test(\"verify the status code is 200\",function(){\r",
+									"    pm.expect(pm.response.code).to.be.eql(200);\r",
+									"});\r",
+									"\r",
+									"// Validate email and role values in the response body\r",
+									"pm.test(\"Email and role validation\", function () {\r",
+									"    pm.expect(jsonData.data).to.exist;\r",
+									"    pm.expect(jsonData.data.username).to.equal(\"sylvianemsa@yopmail.com\");\r",
+									"    pm.expect(jsonData.data.inroles).to.equal(\"NEMSA\");\r",
+									"})"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"id": "e3b07bf1-1db7-4ac8-9bf2-0a9d11afdcfe",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "text/plain"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"username\": \"sylvianemsa@yopmail.com\",\n    \"password\": \"Tester@123\"\n}",
+							"options": {
+								"raw": {
+									"headerFamily": "json",
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{baseUrl}}/api/authentication/allusers"
+					},
+					"response": [
+						{
+							"id": "6d63fde0-9c8e-4a77-b45e-5339ee050217",
+							"name": "OK",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "text/plain"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"password\": \"string\",\n  \"username\": \"string\",\n  \"passcode\": \"string\",\n  \"usertype\": \"string\",\n  \"devicetype\": \"string\",\n  \"ipaddress\": \"string\"\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{baseUrl}}/api/authentication/allusers"
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"responseTime": null,
+							"body": "{\n  \"cc\": 2222,\n  \"responsecode\": 2883,\n  \"data\": {\n    \"nullable\": true\n  },\n  \"responsemessage\": \"string\",\n  \"patterns\": \"string\",\n  \"responsStatus\": false,\n  \"totalpage\": 1761,\n  \"currentpage\": 2297\n}"
+						}
+					]
+				},
+				{
+					"name": "login invalid Password",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "822c9157-179f-4850-8b85-1ef096c1fe3f",
+								"exec": [
+									"pm.test(\"Validate response structure and values\", () => {\r",
+									"    const jsonData = pm.response.json();\r",
+									"\r",
+									"    // Common field checks\r",
+									"    pm.expect(jsonData).to.have.property(\"cc\", 0);\r",
+									"    pm.expect(jsonData).to.have.property(\"data\", null);\r",
+									"    pm.expect(jsonData).to.have.property(\"patterns\", \"\");\r",
+									"    pm.expect(jsonData).to.have.property(\"responsStatus\", false);\r",
+									"    pm.expect(jsonData).to.have.property(\"totalpage\", 0);\r",
+									"    pm.expect(jsonData).to.have.property(\"currentpage\", 0);\r",
+									"\r",
+									"    // Conditional checks\r",
+									"    if (jsonData.responsecode === 200) {\r",
+									"        pm.expect(jsonData.responsemessage).to.eql(\"Invalid Credential\");\r",
+									"    } else if (jsonData.responsecode === 301) {\r",
+									"        pm.expect(jsonData.responsemessage).to.eql(\"Account Lockout\");\r",
+									"    } else {\r",
+									"        pm.expect.fail(`Unexpected responsecode: ${jsonData.responsecode}`);\r",
+									"    }\r",
+									"\r",
+									"});\r",
+									"\r",
+									"\r",
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"id": "41623491-253d-4c69-9b2f-c73e564c189a",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "text/plain"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"username\": \"sylvianemsa@yopmail.com\",\n    \"password\": \"Tester@126\"\n}",
+							"options": {
+								"raw": {
+									"headerFamily": "json",
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{baseUrl}}/api/authentication/allusers"
+					},
+					"response": [
+						{
+							"id": "5a977c12-55c4-44d2-ad46-e5e7484aad7c",
+							"name": "OK",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "text/plain"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"password\": \"string\",\n  \"username\": \"string\",\n  \"passcode\": \"string\",\n  \"usertype\": \"string\",\n  \"devicetype\": \"string\",\n  \"ipaddress\": \"string\"\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{baseUrl}}/api/authentication/allusers"
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"responseTime": null,
+							"body": "{\n  \"cc\": 2222,\n  \"responsecode\": 2883,\n  \"data\": {\n    \"nullable\": true\n  },\n  \"responsemessage\": \"string\",\n  \"patterns\": \"string\",\n  \"responsStatus\": false,\n  \"totalpage\": 1761,\n  \"currentpage\": 2297\n}"
+						}
+					]
+				},
+				{
+					"name": "Empty Credentials",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "822c9157-179f-4850-8b85-1ef096c1fe3f",
+								"exec": [
+									"pm.test(\"Validation Error Response\", () => {\r",
+									"    const jsonData = pm.response.json();\r",
+									"\r",
+									"    pm.expect(jsonData.status).to.eql(400);\r",
+									"    pm.expect(jsonData.title).to.eql(\"One or more validation errors occurred.\");\r",
+									"    pm.expect(jsonData.errors).to.be.an(\"object\");\r",
+									"\r",
+									"    if (jsonData.errors.password) {\r",
+									"        pm.expect(jsonData.errors.password).to.include(\"The password field is required.\");\r",
+									"    }\r",
+									"    if (jsonData.errors.username) {\r",
+									"        pm.expect(jsonData.errors.username).to.include(\"The username field is required.\");\r",
+									"    }\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"id": "5285652d-b88f-4b67-b700-980fe548cb53",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "text/plain"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"username\": \"\",\n    \"password\": \"\"\n}",
+							"options": {
+								"raw": {
+									"headerFamily": "json",
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{baseUrl}}/api/authentication/allusers"
+					},
+					"response": [
+						{
+							"id": "4847d425-f7b0-46ea-a815-a6e851f1e5a3",
+							"name": "OK",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "text/plain"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"password\": \"string\",\n  \"username\": \"string\",\n  \"passcode\": \"string\",\n  \"usertype\": \"string\",\n  \"devicetype\": \"string\",\n  \"ipaddress\": \"string\"\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{baseUrl}}/api/authentication/allusers"
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"responseTime": null,
+							"body": "{\n  \"cc\": 2222,\n  \"responsecode\": 2883,\n  \"data\": {\n    \"nullable\": true\n  },\n  \"responsemessage\": \"string\",\n  \"patterns\": \"string\",\n  \"responsStatus\": false,\n  \"totalpage\": 1761,\n  \"currentpage\": 2297\n}"
+						}
+					]
+				}
+			],
+			"id": "cd7f420e-3065-4b7d-84bb-7ee3041164bf"
+		},
+		{
+			"name": "Quick view",
+			"item": [
+				{
+					"name": "Quick view",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "cd5e2cdf-e0a6-4ece-8584-ef5fcfa7c0d3",
+								"exec": [
+									"const jsonData = pm.response.json();\r",
+									"pm.test(\"Status code is 200\", () => {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Check response values\", () => {\r",
+									"    pm.expect(jsonData.responsecode).to.eql(200);\r",
+									"    pm.expect(jsonData.responsStatus).to.eql(true);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Data batch counts are valid\", () => {\r",
+									"    pm.expect(jsonData.data.receivedbatch).to.be.a(\"number\");\r",
+									"    pm.expect(jsonData.data.pendingbatch).to.be.a(\"number\");\r",
+									"    pm.expect(jsonData.data.certifiedbatch).to.be.a(\"number\");\r",
+									"    pm.expect(jsonData.data.rejectedbatch).to.be.a(\"number\");\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"id": "38a48cde-2b3d-4db2-8ad0-b4629de8c407",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{accessToken}}"
+							}
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "text/plain"
+							}
+						],
+						"url": "{{baseUrl}}/api/NemsaControls/nemsaquick"
+					},
+					"response": [
+						{
+							"id": "2fed5f55-ab35-4dc8-9992-45760c0c64b0",
+							"name": "OK",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "text/plain"
+									}
+								],
+								"url": "{{baseUrl}}/api/NemsaControls/nemsaquick"
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"responseTime": null,
+							"body": "{\n  \"cc\": 9011,\n  \"responsecode\": 9300,\n  \"data\": {\n    \"receivedbatch\": 9168,\n    \"pendingbatch\": 4696,\n    \"certifiedbatch\": 4820,\n    \"rejectedbatch\": 2597\n  },\n  \"responsemessage\": \"string\",\n  \"patterns\": \"string\",\n  \"responsStatus\": false,\n  \"totalpage\": 9041,\n  \"currentpage\": 2573\n}"
+						}
+					]
+				},
+				{
+					"name": "Quick view invalid token",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "cd5e2cdf-e0a6-4ece-8584-ef5fcfa7c0d3",
+								"exec": [
+									"const jsonData = pm.response.json();\r",
+									"pm.test(\"Status code is 200\", () => {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Check response values\", () => {\r",
+									"    pm.expect(jsonData.responsecode).to.eql(200);\r",
+									"    pm.expect(jsonData.responsStatus).to.eql(true);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Data batch counts are valid\", () => {\r",
+									"    pm.expect(jsonData.data.receivedbatch).to.be.a(\"number\");\r",
+									"    pm.expect(jsonData.data.pendingbatch).to.be.a(\"number\");\r",
+									"    pm.expect(jsonData.data.certifiedbatch).to.be.a(\"number\");\r",
+									"    pm.expect(jsonData.data.rejectedbatch).to.be.a(\"number\");\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"id": "3166c388-ad9a-4f37-bff2-ad4a6741e120",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{accessToken}}"
+							}
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "text/plain"
+							}
+						],
+						"url": "{{baseUrl}}/api/NemsaControls/nemsaquick"
+					},
+					"response": [
+						{
+							"id": "81ebe3f9-0fcb-40d8-a790-774c89fc7e52",
+							"name": "OK",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "text/plain"
+									}
+								],
+								"url": "{{baseUrl}}/api/NemsaControls/nemsaquick"
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"responseTime": null,
+							"body": "{\n  \"cc\": 9011,\n  \"responsecode\": 9300,\n  \"data\": {\n    \"receivedbatch\": 9168,\n    \"pendingbatch\": 4696,\n    \"certifiedbatch\": 4820,\n    \"rejectedbatch\": 2597\n  },\n  \"responsemessage\": \"string\",\n  \"patterns\": \"string\",\n  \"responsStatus\": false,\n  \"totalpage\": 9041,\n  \"currentpage\": 2573\n}"
+						}
+					]
+				},
+				{
+					"name": "Quick view no token",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "cd5e2cdf-e0a6-4ece-8584-ef5fcfa7c0d3",
+								"exec": [
+									"const jsonData = pm.response.json();\r",
+									"pm.test(\"Status code is 200\", () => {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Check response values\", () => {\r",
+									"    pm.expect(jsonData.responsecode).to.eql(200);\r",
+									"    pm.expect(jsonData.responsStatus).to.eql(true);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Data batch counts are valid\", () => {\r",
+									"    pm.expect(jsonData.data.receivedbatch).to.be.a(\"number\");\r",
+									"    pm.expect(jsonData.data.pendingbatch).to.be.a(\"number\");\r",
+									"    pm.expect(jsonData.data.certifiedbatch).to.be.a(\"number\");\r",
+									"    pm.expect(jsonData.data.rejectedbatch).to.be.a(\"number\");\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"id": "f17fd9cc-fe59-4cc2-a5e4-e3a114b18cab",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{accessToken}}"
+							}
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "text/plain"
+							}
+						],
+						"url": "{{baseUrl}}/api/NemsaControls/nemsaquick"
+					},
+					"response": [
+						{
+							"id": "f9686f11-383f-4253-8f4c-26bfcfa6b4bb",
+							"name": "OK",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "text/plain"
+									}
+								],
+								"url": "{{baseUrl}}/api/NemsaControls/nemsaquick"
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"responseTime": null,
+							"body": "{\n  \"cc\": 9011,\n  \"responsecode\": 9300,\n  \"data\": {\n    \"receivedbatch\": 9168,\n    \"pendingbatch\": 4696,\n    \"certifiedbatch\": 4820,\n    \"rejectedbatch\": 2597\n  },\n  \"responsemessage\": \"string\",\n  \"patterns\": \"string\",\n  \"responsStatus\": false,\n  \"totalpage\": 9041,\n  \"currentpage\": 2573\n}"
+						}
+					]
+				}
+			],
+			"id": "7d07448f-2857-40fc-8619-29e25198cbf8"
+		},
+		{
+			"name": "Get Vendors Meters",
+			"item": [
+				{
+					"name": "Get meter batches",
+					"id": "d0803f8e-7f4b-47f7-85db-ee20682ab8a5",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "text/plain"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/api/NemsaControls/getvendormeters/:offset/:limit",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"NemsaControls",
+								"getvendormeters",
+								":offset",
+								":limit"
+							],
+							"variable": [
+								{
+									"id": "54ad58b5-214a-4c5a-8042-499b41c82f60",
+									"key": "offset",
+									"value": "147",
+									"description": "(Required) "
+								},
+								{
+									"id": "cdd8989c-9fbd-44b4-8c4f-09a8c180de1b",
+									"key": "limit",
+									"value": "147",
+									"description": "(Required) "
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"id": "39b2a53e-afa6-4269-a711-1e993e7ae0c4",
+							"name": "OK",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "text/plain"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/api/NemsaControls/getvendormeters/:offset/:limit",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"NemsaControls",
+										"getvendormeters",
+										":offset",
+										":limit"
+									],
+									"variable": [
+										{
+											"key": "offset"
+										},
+										{
+											"key": "limit"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"responseTime": null,
+							"body": "{\n  \"cc\": 6986,\n  \"responsecode\": 7210,\n  \"data\": [\n    {\n      \"carton_number\": \"string\",\n      \"disco\": \"string\",\n      \"meter_brand\": \"string\",\n      \"meter_number\": \"string\",\n      \"meter_phase\": \"string\",\n      \"meter_type\": \"string\",\n      \"vendor_id\": \"string\",\n      \"id\": 9074,\n      \"date_supplied\": \"2007-09-27T15:30:38.478Z\",\n      \"batch_number\": \"string\",\n      \"vendorname\": \"string\",\n      \"prop_scheme\": \"stri\",\n      \"discorejectreason\": \"string\",\n      \"certified\": true,\n      \"datecertified\": \"2016-08-13T18:58:28.870Z\",\n      \"date_purchase\": \"2021-03-14T18:25:56.434Z\",\n      \"contract_id\": \"string\",\n      \"metercost\": 3584.0934547208535,\n      \"sealnumber\": \"string\",\n      \"comment\": \"string\",\n      \"status\": \"string\",\n      \"approvedate\": \"1979-02-19T19:34:09.225Z\",\n      \"mstransfer\": false,\n      \"msdate\": \"2021-10-19T18:33:42.512Z\",\n      \"acceptdisco\": false,\n      \"discodate\": \"1975-06-16T12:02:30.160Z\",\n      \"expected_date\": \"2001-08-02T13:44:08.646Z\"\n    },\n    {\n      \"carton_number\": \"string\",\n      \"disco\": \"string\",\n      \"meter_brand\": \"string\",\n      \"meter_number\": \"string\",\n      \"meter_phase\": \"string\",\n      \"meter_type\": \"string\",\n      \"vendor_id\": \"string\",\n      \"id\": 9640,\n      \"date_supplied\": \"1995-06-30T23:01:26.402Z\",\n      \"batch_number\": \"string\",\n      \"vendorname\": \"string\",\n      \"prop_scheme\": \"string\",\n      \"discorejectreason\": \"string\",\n      \"certified\": true,\n      \"datecertified\": \"2025-06-24T21:39:03.905Z\",\n      \"date_purchase\": \"1967-03-21T03:10:34.895Z\",\n      \"contract_id\": \"string\",\n      \"metercost\": 4500.344040579708,\n      \"sealnumber\": \"string\",\n      \"comment\": \"string\",\n      \"status\": \"string\",\n      \"approvedate\": \"1952-09-09T23:26:30.833Z\",\n      \"mstransfer\": true,\n      \"msdate\": \"1969-02-03T02:30:30.429Z\",\n      \"acceptdisco\": true,\n      \"discodate\": \"1978-05-07T08:20:16.972Z\",\n      \"expected_date\": \"2011-06-08T06:52:36.884Z\"\n    }\n  ],\n  \"responsemessage\": \"string\",\n  \"patterns\": \"string\",\n  \"responsStatus\": true,\n  \"totalpage\": 9928,\n  \"currentpage\": 9033\n}"
+						}
+					]
+				},
+				{
+					"name": "Get invalid batch",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "21a207a2-fdd2-404f-b9ef-e4ec8c04ca69",
+								"exec": [
+									"pm.test(\"Status code is 4xx (invalid batch)\", function () {\r",
+									"    pm.response.to.have.status(400); // or 404 depending on API design\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response code indicates failure\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData.responsecode).not.eql(200);\r",
+									"    pm.expect(jsonData.responsStatus).to.be.false;\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Error message is descriptive\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData.responsemessage).to.be.a(\"string\").and.not.empty;\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"id": "6d762de2-2a20-4b09-af24-429e9228b28e",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{accessToken}}"
+							}
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "text/plain"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/api/NemsaControls/getvendormeters/:offset/:limit?batch_number=2025842",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"NemsaControls",
+								"getvendormeters",
+								":offset",
+								":limit"
+							],
+							"query": [
+								{
+									"key": "batch_number",
+									"value": "2025842",
+									"type": "text"
+								}
+							],
+							"variable": [
+								{
+									"key": "offset",
+									"value": "147",
+									"description": "(Required) "
+								},
+								{
+									"key": "limit",
+									"value": "147",
+									"description": "(Required) "
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"id": "33e77298-a187-4f9e-8263-cb177518d24e",
+							"name": "OK",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "text/plain"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/api/NemsaControls/getvendormeters/:offset/:limit",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"NemsaControls",
+										"getvendormeters",
+										":offset",
+										":limit"
+									],
+									"variable": [
+										{
+											"key": "offset"
+										},
+										{
+											"key": "limit"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"responseTime": null,
+							"body": "{\n  \"cc\": 6986,\n  \"responsecode\": 7210,\n  \"data\": [\n    {\n      \"carton_number\": \"string\",\n      \"disco\": \"string\",\n      \"meter_brand\": \"string\",\n      \"meter_number\": \"string\",\n      \"meter_phase\": \"string\",\n      \"meter_type\": \"string\",\n      \"vendor_id\": \"string\",\n      \"id\": 9074,\n      \"date_supplied\": \"2007-09-27T15:30:38.478Z\",\n      \"batch_number\": \"string\",\n      \"vendorname\": \"string\",\n      \"prop_scheme\": \"stri\",\n      \"discorejectreason\": \"string\",\n      \"certified\": true,\n      \"datecertified\": \"2016-08-13T18:58:28.870Z\",\n      \"date_purchase\": \"2021-03-14T18:25:56.434Z\",\n      \"contract_id\": \"string\",\n      \"metercost\": 3584.0934547208535,\n      \"sealnumber\": \"string\",\n      \"comment\": \"string\",\n      \"status\": \"string\",\n      \"approvedate\": \"1979-02-19T19:34:09.225Z\",\n      \"mstransfer\": false,\n      \"msdate\": \"2021-10-19T18:33:42.512Z\",\n      \"acceptdisco\": false,\n      \"discodate\": \"1975-06-16T12:02:30.160Z\",\n      \"expected_date\": \"2001-08-02T13:44:08.646Z\"\n    },\n    {\n      \"carton_number\": \"string\",\n      \"disco\": \"string\",\n      \"meter_brand\": \"string\",\n      \"meter_number\": \"string\",\n      \"meter_phase\": \"string\",\n      \"meter_type\": \"string\",\n      \"vendor_id\": \"string\",\n      \"id\": 9640,\n      \"date_supplied\": \"1995-06-30T23:01:26.402Z\",\n      \"batch_number\": \"string\",\n      \"vendorname\": \"string\",\n      \"prop_scheme\": \"string\",\n      \"discorejectreason\": \"string\",\n      \"certified\": true,\n      \"datecertified\": \"2025-06-24T21:39:03.905Z\",\n      \"date_purchase\": \"1967-03-21T03:10:34.895Z\",\n      \"contract_id\": \"string\",\n      \"metercost\": 4500.344040579708,\n      \"sealnumber\": \"string\",\n      \"comment\": \"string\",\n      \"status\": \"string\",\n      \"approvedate\": \"1952-09-09T23:26:30.833Z\",\n      \"mstransfer\": true,\n      \"msdate\": \"1969-02-03T02:30:30.429Z\",\n      \"acceptdisco\": true,\n      \"discodate\": \"1978-05-07T08:20:16.972Z\",\n      \"expected_date\": \"2011-06-08T06:52:36.884Z\"\n    }\n  ],\n  \"responsemessage\": \"string\",\n  \"patterns\": \"string\",\n  \"responsStatus\": true,\n  \"totalpage\": 9928,\n  \"currentpage\": 9033\n}"
+						}
+					]
+				}
+			],
+			"id": "d0c4deb4-118a-4213-b2e4-521a132c8e60"
+		},
+		{
+			"name": "Certify Meters",
+			"item": [
+				{
+					"name": "Certify meter - single request",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "ad99c70f-1bd8-40cc-a2fb-c2f4cb35155a",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"let jsonData = pm.response.json();\r",
+									"\r",
+									"pm.test(\"Response status is true\", function () {\r",
+									"    pm.expect(jsonData.responsStatus).to.be.true;\r",
+									"    pm.expect(jsonData.responsecode).to.eql(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Data array is not empty\", function () {\r",
+									"    pm.expect(jsonData.data).to.be.an(\"array\").that.is.not.empty;\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Batch record contains required fields\", function () {\r",
+									"    let record = jsonData.data[0];\r",
+									"    pm.expect(record).to.have.property(\"meter_number\").that.is.a(\"string\").and.not.empty;\r",
+									"    pm.expect(record).to.have.property(\"batch_number\").that.is.a(\"string\").and.not.empty;\r",
+									"    pm.expect(record).to.have.property(\"nemsa_status\").that.is.a(\"string\").and.eql(\"Approved\");\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"id": "631d2611-79ae-4a2e-96c3-a36a32c36f0f",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{accessToken}}"
+							}
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "text/plain"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "[\n  {\n    \"meternumber\": \"7270932276\",\n    \"sealnumber\": \"12345678765\"\n  }\n]",
+							"options": {
+								"raw": {
+									"headerFamily": "json",
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{baseUrl}}/api/NemsaControls/metervalidation"
+					},
+					"response": [
+						{
+							"id": "c17c91ce-d22b-4577-8bc5-05ddcf105cb6",
+							"name": "OK",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "text/plain"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "[\n  {\n    \"meternumber\": \"string\",\n    \"sealnumber\": \"string\"\n  },\n  {\n    \"meternumber\": \"string\",\n    \"sealnumber\": \"string\"\n  }\n]",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{baseUrl}}/api/NemsaControls/metervalidation"
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"responseTime": null,
+							"body": "{\n  \"cc\": 4739,\n  \"responsecode\": 8194,\n  \"data\": [\n    {\n      \"batch_number\": \"string\",\n      \"carton_number\": \"string\",\n      \"disco\": \"string\",\n      \"meter_brand\": \"string\",\n      \"meter_number\": \"string\",\n      \"meter_phase\": \"string\",\n      \"nemsa_status\": \"string\",\n      \"vendor_id\": \"string\",\n      \"id\": 6715,\n      \"date_supplied\": \"1991-08-29T20:51:48.421Z\",\n      \"vendorname\": \"string\",\n      \"nemsa_seal\": \"string\",\n      \"customerid\": \"string\",\n      \"prop_scheme\": \"st\",\n      \"metercost\": 4869.737852321895,\n      \"location\": \"string\",\n      \"endate\": \"1997-08-18T12:00:05.724Z\",\n      \"jcount\": 7646,\n      \"tid\": 1088,\n      \"expected_date\": \"1968-02-20T06:16:16.902Z\",\n      \"contract_id\": \"string\"\n    },\n    {\n      \"batch_number\": \"string\",\n      \"carton_number\": \"string\",\n      \"disco\": \"string\",\n      \"meter_brand\": \"string\",\n      \"meter_number\": \"string\",\n      \"meter_phase\": \"string\",\n      \"nemsa_status\": \"string\",\n      \"vendor_id\": \"string\",\n      \"id\": 7765,\n      \"date_supplied\": \"2005-04-13T10:40:37.053Z\",\n      \"vendorname\": \"string\",\n      \"nemsa_seal\": \"string\",\n      \"customerid\": \"string\",\n      \"prop_scheme\": \"string\",\n      \"metercost\": 7604.168116102174,\n      \"location\": \"string\",\n      \"endate\": \"1968-02-15T06:50:24.849Z\",\n      \"jcount\": 5837,\n      \"tid\": 6402,\n      \"expected_date\": \"1989-05-24T13:14:08.489Z\",\n      \"contract_id\": \"string\"\n    }\n  ],\n  \"responsemessage\": \"string\",\n  \"patterns\": \"string\",\n  \"responsStatus\": true,\n  \"totalpage\": 8073,\n  \"currentpage\": 2226\n}"
+						}
+					]
+				},
+				{
+					"name": "Certify meter - multiple request",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "ad99c70f-1bd8-40cc-a2fb-c2f4cb35155a",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"let jsonData = pm.response.json();\r",
+									"\r",
+									"pm.test(\"Response status is true\", function () {\r",
+									"    pm.expect(jsonData.responsStatus).to.be.true;\r",
+									"    pm.expect(jsonData.responsecode).to.eql(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Data array is not empty\", function () {\r",
+									"    pm.expect(jsonData.data).to.be.an(\"array\").that.is.not.empty;\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Batch record contains required fields\", function () {\r",
+									"    let record = jsonData.data[0];\r",
+									"    pm.expect(record).to.have.property(\"meter_number\").that.is.a(\"string\").and.not.empty;\r",
+									"    pm.expect(record).to.have.property(\"batch_number\").that.is.a(\"string\").and.not.empty;\r",
+									"    pm.expect(record).to.have.property(\"nemsa_status\").that.is.a(\"string\").and.eql(\"Approved\");\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"id": "df094393-aef7-4f4e-a60c-784b7f1dfbf7",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{accessToken}}"
+							}
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "text/plain"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "[\n  {\n    \"meternumber\": \"7270932276\",\n    \"sealnumber\": \"12345678765\"\n  }\n]",
+							"options": {
+								"raw": {
+									"headerFamily": "json",
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{baseUrl}}/api/NemsaControls/metervalidation"
+					},
+					"response": [
+						{
+							"id": "3345bfc0-f68a-4538-8c30-567b5ff609a1",
+							"name": "OK",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "text/plain"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "[\n  {\n    \"meternumber\": \"string\",\n    \"sealnumber\": \"string\"\n  },\n  {\n    \"meternumber\": \"string\",\n    \"sealnumber\": \"string\"\n  }\n]",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{baseUrl}}/api/NemsaControls/metervalidation"
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"responseTime": null,
+							"body": "{\n  \"cc\": 4739,\n  \"responsecode\": 8194,\n  \"data\": [\n    {\n      \"batch_number\": \"string\",\n      \"carton_number\": \"string\",\n      \"disco\": \"string\",\n      \"meter_brand\": \"string\",\n      \"meter_number\": \"string\",\n      \"meter_phase\": \"string\",\n      \"nemsa_status\": \"string\",\n      \"vendor_id\": \"string\",\n      \"id\": 6715,\n      \"date_supplied\": \"1991-08-29T20:51:48.421Z\",\n      \"vendorname\": \"string\",\n      \"nemsa_seal\": \"string\",\n      \"customerid\": \"string\",\n      \"prop_scheme\": \"st\",\n      \"metercost\": 4869.737852321895,\n      \"location\": \"string\",\n      \"endate\": \"1997-08-18T12:00:05.724Z\",\n      \"jcount\": 7646,\n      \"tid\": 1088,\n      \"expected_date\": \"1968-02-20T06:16:16.902Z\",\n      \"contract_id\": \"string\"\n    },\n    {\n      \"batch_number\": \"string\",\n      \"carton_number\": \"string\",\n      \"disco\": \"string\",\n      \"meter_brand\": \"string\",\n      \"meter_number\": \"string\",\n      \"meter_phase\": \"string\",\n      \"nemsa_status\": \"string\",\n      \"vendor_id\": \"string\",\n      \"id\": 7765,\n      \"date_supplied\": \"2005-04-13T10:40:37.053Z\",\n      \"vendorname\": \"string\",\n      \"nemsa_seal\": \"string\",\n      \"customerid\": \"string\",\n      \"prop_scheme\": \"string\",\n      \"metercost\": 7604.168116102174,\n      \"location\": \"string\",\n      \"endate\": \"1968-02-15T06:50:24.849Z\",\n      \"jcount\": 5837,\n      \"tid\": 6402,\n      \"expected_date\": \"1989-05-24T13:14:08.489Z\",\n      \"contract_id\": \"string\"\n    }\n  ],\n  \"responsemessage\": \"string\",\n  \"patterns\": \"string\",\n  \"responsStatus\": true,\n  \"totalpage\": 8073,\n  \"currentpage\": 2226\n}"
+						}
+					]
+				},
+				{
+					"name": "Invalid meter number",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "ad99c70f-1bd8-40cc-a2fb-c2f4cb35155a",
+								"exec": [
+									"pm.test(\"Invalid meter number should not return 200\", function () {\r",
+									"    pm.expect(pm.response.code).to.not.eql(200);\r",
+									"});\r",
+									"\r",
+									"let jsonData = pm.response.json();\r",
+									"\r",
+									"pm.test(\"Response status is false\", function () {\r",
+									"    pm.expect(jsonData.responsStatus).to.be.false;\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Error message is present\", function () {\r",
+									"    pm.expect(jsonData.responsemessage).to.be.a(\"string\").and.not.empty;\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"id": "53098c63-6e63-400e-a959-8b1a532eb632",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{accessToken}}"
+							}
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "text/plain"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "[\n  {\n    \"meternumber\": \"7270932211\",\n    \"sealnumber\": \"12345678765\"\n  }\n]",
+							"options": {
+								"raw": {
+									"headerFamily": "json",
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{baseUrl}}/api/NemsaControls/metervalidation"
+					},
+					"response": [
+						{
+							"id": "7f8c265b-575a-458a-b719-f4f9ca784cf9",
+							"name": "OK",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "text/plain"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "[\n  {\n    \"meternumber\": \"string\",\n    \"sealnumber\": \"string\"\n  },\n  {\n    \"meternumber\": \"string\",\n    \"sealnumber\": \"string\"\n  }\n]",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{baseUrl}}/api/NemsaControls/metervalidation"
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"responseTime": null,
+							"body": "{\n  \"cc\": 4739,\n  \"responsecode\": 8194,\n  \"data\": [\n    {\n      \"batch_number\": \"string\",\n      \"carton_number\": \"string\",\n      \"disco\": \"string\",\n      \"meter_brand\": \"string\",\n      \"meter_number\": \"string\",\n      \"meter_phase\": \"string\",\n      \"nemsa_status\": \"string\",\n      \"vendor_id\": \"string\",\n      \"id\": 6715,\n      \"date_supplied\": \"1991-08-29T20:51:48.421Z\",\n      \"vendorname\": \"string\",\n      \"nemsa_seal\": \"string\",\n      \"customerid\": \"string\",\n      \"prop_scheme\": \"st\",\n      \"metercost\": 4869.737852321895,\n      \"location\": \"string\",\n      \"endate\": \"1997-08-18T12:00:05.724Z\",\n      \"jcount\": 7646,\n      \"tid\": 1088,\n      \"expected_date\": \"1968-02-20T06:16:16.902Z\",\n      \"contract_id\": \"string\"\n    },\n    {\n      \"batch_number\": \"string\",\n      \"carton_number\": \"string\",\n      \"disco\": \"string\",\n      \"meter_brand\": \"string\",\n      \"meter_number\": \"string\",\n      \"meter_phase\": \"string\",\n      \"nemsa_status\": \"string\",\n      \"vendor_id\": \"string\",\n      \"id\": 7765,\n      \"date_supplied\": \"2005-04-13T10:40:37.053Z\",\n      \"vendorname\": \"string\",\n      \"nemsa_seal\": \"string\",\n      \"customerid\": \"string\",\n      \"prop_scheme\": \"string\",\n      \"metercost\": 7604.168116102174,\n      \"location\": \"string\",\n      \"endate\": \"1968-02-15T06:50:24.849Z\",\n      \"jcount\": 5837,\n      \"tid\": 6402,\n      \"expected_date\": \"1989-05-24T13:14:08.489Z\",\n      \"contract_id\": \"string\"\n    }\n  ],\n  \"responsemessage\": \"string\",\n  \"patterns\": \"string\",\n  \"responsStatus\": true,\n  \"totalpage\": 8073,\n  \"currentpage\": 2226\n}"
+						}
+					]
+				},
+				{
+					"name": "Blank meter number Copy",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "ad99c70f-1bd8-40cc-a2fb-c2f4cb35155a",
+								"exec": [
+									"pm.test(\"Invalid meter number should not return 200\", function () {\r",
+									"    pm.expect(pm.response.code).to.not.eql(200);\r",
+									"});\r",
+									"\r",
+									"let jsonData = pm.response.json();\r",
+									"\r",
+									"pm.test(\"Response status is false\", function () {\r",
+									"    pm.expect(jsonData.responsStatus).to.be.false;\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Error message is present\", function () {\r",
+									"    pm.expect(jsonData.responsemessage).to.be.a(\"string\").and.not.empty;\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"id": "512c0501-87f2-4d97-9490-5b76b98d21a6",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{accessToken}}"
+							}
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "text/plain"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "[\n  {\n    \"meternumber\": \"\",\n    \"sealnumber\": \"12345678765\"\n  }\n]",
+							"options": {
+								"raw": {
+									"headerFamily": "json",
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{baseUrl}}/api/NemsaControls/metervalidation"
+					},
+					"response": [
+						{
+							"id": "68fde729-20d8-4b0c-8167-8a41a1c13ede",
+							"name": "OK",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "text/plain"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "[\n  {\n    \"meternumber\": \"string\",\n    \"sealnumber\": \"string\"\n  },\n  {\n    \"meternumber\": \"string\",\n    \"sealnumber\": \"string\"\n  }\n]",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{baseUrl}}/api/NemsaControls/metervalidation"
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"responseTime": null,
+							"body": "{\n  \"cc\": 4739,\n  \"responsecode\": 8194,\n  \"data\": [\n    {\n      \"batch_number\": \"string\",\n      \"carton_number\": \"string\",\n      \"disco\": \"string\",\n      \"meter_brand\": \"string\",\n      \"meter_number\": \"string\",\n      \"meter_phase\": \"string\",\n      \"nemsa_status\": \"string\",\n      \"vendor_id\": \"string\",\n      \"id\": 6715,\n      \"date_supplied\": \"1991-08-29T20:51:48.421Z\",\n      \"vendorname\": \"string\",\n      \"nemsa_seal\": \"string\",\n      \"customerid\": \"string\",\n      \"prop_scheme\": \"st\",\n      \"metercost\": 4869.737852321895,\n      \"location\": \"string\",\n      \"endate\": \"1997-08-18T12:00:05.724Z\",\n      \"jcount\": 7646,\n      \"tid\": 1088,\n      \"expected_date\": \"1968-02-20T06:16:16.902Z\",\n      \"contract_id\": \"string\"\n    },\n    {\n      \"batch_number\": \"string\",\n      \"carton_number\": \"string\",\n      \"disco\": \"string\",\n      \"meter_brand\": \"string\",\n      \"meter_number\": \"string\",\n      \"meter_phase\": \"string\",\n      \"nemsa_status\": \"string\",\n      \"vendor_id\": \"string\",\n      \"id\": 7765,\n      \"date_supplied\": \"2005-04-13T10:40:37.053Z\",\n      \"vendorname\": \"string\",\n      \"nemsa_seal\": \"string\",\n      \"customerid\": \"string\",\n      \"prop_scheme\": \"string\",\n      \"metercost\": 7604.168116102174,\n      \"location\": \"string\",\n      \"endate\": \"1968-02-15T06:50:24.849Z\",\n      \"jcount\": 5837,\n      \"tid\": 6402,\n      \"expected_date\": \"1989-05-24T13:14:08.489Z\",\n      \"contract_id\": \"string\"\n    }\n  ],\n  \"responsemessage\": \"string\",\n  \"patterns\": \"string\",\n  \"responsStatus\": true,\n  \"totalpage\": 8073,\n  \"currentpage\": 2226\n}"
+						}
+					]
+				},
+				{
+					"name": "Duplicate seal number",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "ad99c70f-1bd8-40cc-a2fb-c2f4cb35155a",
+								"exec": [
+									"pm.test(\"Invalid meter number should not return 200\", function () {\r",
+									"    pm.expect(pm.response.code).to.not.eql(200);\r",
+									"});\r",
+									"\r",
+									"let jsonData = pm.response.json();\r",
+									"\r",
+									"pm.test(\"Response status is false\", function () {\r",
+									"    pm.expect(jsonData.responsStatus).to.be.false;\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Error message is present\", function () {\r",
+									"    pm.expect(jsonData.responsemessage).to.be.a(\"string\").and.not.empty;\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"id": "664ddad4-5c41-4a21-b226-e7e0caaa9424",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{accessToken}}"
+							}
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "text/plain"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "[\n  {\n    \"meternumber\": \"7270932211\",\n    \"sealnumber\": \"12345678765\"\n  }\n]",
+							"options": {
+								"raw": {
+									"headerFamily": "json",
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{baseUrl}}/api/NemsaControls/metervalidation"
+					},
+					"response": [
+						{
+							"id": "9263e590-3948-4c15-b924-98eeedd6aeb8",
+							"name": "OK",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "text/plain"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "[\n  {\n    \"meternumber\": \"string\",\n    \"sealnumber\": \"string\"\n  },\n  {\n    \"meternumber\": \"string\",\n    \"sealnumber\": \"string\"\n  }\n]",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{baseUrl}}/api/NemsaControls/metervalidation"
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"responseTime": null,
+							"body": "{\n  \"cc\": 4739,\n  \"responsecode\": 8194,\n  \"data\": [\n    {\n      \"batch_number\": \"string\",\n      \"carton_number\": \"string\",\n      \"disco\": \"string\",\n      \"meter_brand\": \"string\",\n      \"meter_number\": \"string\",\n      \"meter_phase\": \"string\",\n      \"nemsa_status\": \"string\",\n      \"vendor_id\": \"string\",\n      \"id\": 6715,\n      \"date_supplied\": \"1991-08-29T20:51:48.421Z\",\n      \"vendorname\": \"string\",\n      \"nemsa_seal\": \"string\",\n      \"customerid\": \"string\",\n      \"prop_scheme\": \"st\",\n      \"metercost\": 4869.737852321895,\n      \"location\": \"string\",\n      \"endate\": \"1997-08-18T12:00:05.724Z\",\n      \"jcount\": 7646,\n      \"tid\": 1088,\n      \"expected_date\": \"1968-02-20T06:16:16.902Z\",\n      \"contract_id\": \"string\"\n    },\n    {\n      \"batch_number\": \"string\",\n      \"carton_number\": \"string\",\n      \"disco\": \"string\",\n      \"meter_brand\": \"string\",\n      \"meter_number\": \"string\",\n      \"meter_phase\": \"string\",\n      \"nemsa_status\": \"string\",\n      \"vendor_id\": \"string\",\n      \"id\": 7765,\n      \"date_supplied\": \"2005-04-13T10:40:37.053Z\",\n      \"vendorname\": \"string\",\n      \"nemsa_seal\": \"string\",\n      \"customerid\": \"string\",\n      \"prop_scheme\": \"string\",\n      \"metercost\": 7604.168116102174,\n      \"location\": \"string\",\n      \"endate\": \"1968-02-15T06:50:24.849Z\",\n      \"jcount\": 5837,\n      \"tid\": 6402,\n      \"expected_date\": \"1989-05-24T13:14:08.489Z\",\n      \"contract_id\": \"string\"\n    }\n  ],\n  \"responsemessage\": \"string\",\n  \"patterns\": \"string\",\n  \"responsStatus\": true,\n  \"totalpage\": 8073,\n  \"currentpage\": 2226\n}"
+						}
+					]
+				}
+			],
+			"id": "f6901cbf-a9b2-4d2e-8e01-ff849b1136c6"
+		},
+		{
+			"name": "Decline Meter certification",
+			"item": [
+				{
+					"name": "Decline a pending batch",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "8f9886c5-b2bb-4e72-9fef-0866283e601e",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response status is true\", function () {\r",
+									"    pm.expect(pm.response.json().responsStatus).to.eql(true);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response message confirms rejection\", function () {\r",
+									"    pm.expect(pm.response.json().responsemessage.toLowerCase()).to.include(\"rejected\");\r",
+									"    pm.expect(pm.response.json().responsemessage.toLowerCase()).to.include(\"decline\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Data is null\", function () {\r",
+									"    pm.expect(pm.response.json().data).to.eql(null);\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"id": "28df4dd6-a91a-4469-833e-b3dcdf4e528c",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{accessToken}}"
+							}
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "text/plain"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"batchnumber\": \"2025835\",\n  \"comment\": \"decline\"\n}",
+							"options": {
+								"raw": {
+									"headerFamily": "json",
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{baseUrl}}/api/NemsaControls/Nemsadeclined"
+					},
+					"response": [
+						{
+							"id": "d3c388ce-eae7-4d83-a9ce-7c3b7027fdb3",
+							"name": "OK",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "text/plain"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"batchnumber\": \"string\",\n  \"comment\": \"string\"\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{baseUrl}}/api/NemsaControls/Nemsadeclined"
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"responseTime": null,
+							"body": "{\n  \"cc\": 2222,\n  \"responsecode\": 2883,\n  \"data\": {\n    \"nullable\": true\n  },\n  \"responsemessage\": \"string\",\n  \"patterns\": \"string\",\n  \"responsStatus\": false,\n  \"totalpage\": 1761,\n  \"currentpage\": 2297\n}"
+						}
+					]
+				},
+				{
+					"name": "Decline a certified batch",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "8f9886c5-b2bb-4e72-9fef-0866283e601e",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response status is true\", function () {\r",
+									"    pm.expect(pm.response.json().responsStatus).to.eql(false);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response message confirms rejection\", function () {\r",
+									"    pm.expect(pm.response.json().responsemessage).to.include(\"certified\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Data is null\", function () {\r",
+									"    pm.expect(pm.response.json().data).to.eql(null);\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"id": "24c0eb97-27f2-461b-b633-06a9ff89dde4",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{accessToken}}"
+							}
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "text/plain"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"batchnumber\": \"2025827\",\n  \"comment\": \"decline\"\n}",
+							"options": {
+								"raw": {
+									"headerFamily": "json",
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{baseUrl}}/api/NemsaControls/Nemsadeclined"
+					},
+					"response": [
+						{
+							"id": "a1557f4c-2771-46d5-b86e-81f61cd2a213",
+							"name": "OK",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "text/plain"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"batchnumber\": \"string\",\n  \"comment\": \"string\"\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{baseUrl}}/api/NemsaControls/Nemsadeclined"
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"responseTime": null,
+							"body": "{\n  \"cc\": 2222,\n  \"responsecode\": 2883,\n  \"data\": {\n    \"nullable\": true\n  },\n  \"responsemessage\": \"string\",\n  \"patterns\": \"string\",\n  \"responsStatus\": false,\n  \"totalpage\": 1761,\n  \"currentpage\": 2297\n}"
+						}
+					]
+				},
+				{
+					"name": "Decline an invalid batch",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "8f9886c5-b2bb-4e72-9fef-0866283e601e",
+								"exec": [
+									"pm.test(\"Status code is not 200 for invalid batch\", function () {\r",
+									"    pm.expect(pm.response.code).to.not.eql(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response status is false\", function () {\r",
+									"    pm.expect(pm.response.json().responsStatus).to.eql(false);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Error message is present\", function () {\r",
+									"    pm.expect(pm.response.json().responsemessage).to.not.be.empty;\r",
+									"    pm.expect(pm.response.json().responsemessage.toLowerCase()).to.include(\"not found\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Data should be null\", function () {\r",
+									"    pm.expect(pm.response.json().data).to.eql(null);\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"id": "19eae0d3-662a-4368-b46e-d00a20e0da05",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{accessToken}}"
+							}
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "text/plain"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"batchnumber\": \"2025800\",\n  \"comment\": \"decline\"\n}",
+							"options": {
+								"raw": {
+									"headerFamily": "json",
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{baseUrl}}/api/NemsaControls/Nemsadeclined"
+					},
+					"response": [
+						{
+							"id": "1b5bc0a2-8691-4456-b5f8-d0bb33cf0bcb",
+							"name": "OK",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "text/plain"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"batchnumber\": \"string\",\n  \"comment\": \"string\"\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{baseUrl}}/api/NemsaControls/Nemsadeclined"
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"responseTime": null,
+							"body": "{\n  \"cc\": 2222,\n  \"responsecode\": 2883,\n  \"data\": {\n    \"nullable\": true\n  },\n  \"responsemessage\": \"string\",\n  \"patterns\": \"string\",\n  \"responsStatus\": false,\n  \"totalpage\": 1761,\n  \"currentpage\": 2297\n}"
+						}
+					]
+				},
+				{
+					"name": "Decline empty batch number",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "8f9886c5-b2bb-4e72-9fef-0866283e601e",
+								"exec": [
+									"pm.test(\"Status code is not 200 for invalid batch\", function () {\r",
+									"    pm.expect(pm.response.code).to.eql(400);\r",
+									"});\r",
+									"\r",
+									"\r",
+									"pm.test(\"Error message is present\", function () {\r",
+									"    pm.expect(pm.response.json().errors).to.not.be.empty;\r",
+									"    pm.expect(pm.response.json().title).to.include(\"validation errors\");\r",
+									"    pm.expect(pm.response.json().errors.batchnumber[0]).to.include(\"required\");\r",
+									"\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"id": "7294f023-6a0a-42fe-8fa8-d694950d5203",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{accessToken}}"
+							}
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "text/plain"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"batchnumber\": \"\",\n  \"comment\": \"decline\"\n}",
+							"options": {
+								"raw": {
+									"headerFamily": "json",
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{baseUrl}}/api/NemsaControls/Nemsadeclined"
+					},
+					"response": [
+						{
+							"id": "29a7799b-09ab-47a9-b3f0-adbe9466c16d",
+							"name": "OK",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "text/plain"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"batchnumber\": \"string\",\n  \"comment\": \"string\"\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{baseUrl}}/api/NemsaControls/Nemsadeclined"
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"responseTime": null,
+							"body": "{\n  \"cc\": 2222,\n  \"responsecode\": 2883,\n  \"data\": {\n    \"nullable\": true\n  },\n  \"responsemessage\": \"string\",\n  \"patterns\": \"string\",\n  \"responsStatus\": false,\n  \"totalpage\": 1761,\n  \"currentpage\": 2297\n}"
+						}
+					]
+				},
+				{
+					"name": "Decline empty comment",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "8f9886c5-b2bb-4e72-9fef-0866283e601e",
+								"exec": [
+									"pm.test(\"Status code is not 200 for invalid batch\", function () {\r",
+									"    pm.expect(pm.response.code).to.eql(400);\r",
+									"});\r",
+									"\r",
+									"\r",
+									"pm.test(\"Error message is present\", function () {\r",
+									"    pm.expect(pm.response.json().errors).to.not.be.empty;\r",
+									"    pm.expect(pm.response.json().title).to.include(\"validation errors\");\r",
+									"    pm.expect(pm.response.json().errors.comment[0]).to.include(\"required\");\r",
+									"\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"id": "0164501f-d296-4cb6-9014-9fcf42e7ff0e",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{accessToken}}"
+							}
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "text/plain"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"batchnumber\": \"2025835\",\n  \"comment\": \"\"\n}",
+							"options": {
+								"raw": {
+									"headerFamily": "json",
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{baseUrl}}/api/NemsaControls/Nemsadeclined"
+					},
+					"response": [
+						{
+							"id": "703926f9-e7ec-4fa0-a0f9-69ff680a8024",
+							"name": "OK",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "text/plain"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"batchnumber\": \"string\",\n  \"comment\": \"string\"\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{baseUrl}}/api/NemsaControls/Nemsadeclined"
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"responseTime": null,
+							"body": "{\n  \"cc\": 2222,\n  \"responsecode\": 2883,\n  \"data\": {\n    \"nullable\": true\n  },\n  \"responsemessage\": \"string\",\n  \"patterns\": \"string\",\n  \"responsStatus\": false,\n  \"totalpage\": 1761,\n  \"currentpage\": 2297\n}"
+						}
+					]
+				}
+			],
+			"id": "294a0372-654f-40e5-b0c8-c0e548275275"
+		},
+		{
+			"name": "Logout",
+			"item": [
+				{
+					"name": "logout",
+					"id": "bbf3316f-b6ee-425e-84eb-7f368f12c377",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "{{baseUrl}}/api/authentication/logout"
+					},
+					"response": [
+						{
+							"id": "eed13b5d-9cd2-470e-a0a8-729bf84dbd4b",
+							"name": "OK",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": "{{baseUrl}}/api/authentication/logout"
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "text",
+							"header": [],
+							"cookie": [],
+							"responseTime": null,
+							"body": ""
+						}
+					]
+				}
+			],
+			"id": "59497553-3fba-4804-99e1-dd2517ffe16c"
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": {
+			"token": "{{nemsa-accessToken}}"
+		}
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "b52d0d3a-a474-4b5a-83c1-fca7badc19cc",
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "e13059b1-1873-455c-9783-ea23df1c8eae",
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "nemsa-accessToken",
+			"value": ""
+		},
+		{
+			"key": "baseUrl",
+			"value": "",
+			"type": "string"
+		}
+	]
+}
