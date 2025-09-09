@@ -1,0 +1,6 @@
+[
+  {
+    "meternumber": "",
+    "sealnumber": "12345678765"
+  }
+]

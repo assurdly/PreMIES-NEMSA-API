@@ -1,0 +1,4 @@
+{
+  "batchnumber": "",
+  "comment": "decline"
+}
