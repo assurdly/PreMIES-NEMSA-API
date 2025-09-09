@@ -38,6 +38,17 @@
 								"type": "text/javascript",
 								"packages": {}
 							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "0502ace4-7238-4e6e-b96e-763b01efcb94",
+								"exec": [
+									"pm.environment.set('baseUrl','https://appmodule.delightfulgrass-0dcdf3e6.brazilsouth.azurecontainerapps.io')"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
 						}
 					],
 					"id": "b975591c-bfc7-4304-bada-72a904ca3488",
