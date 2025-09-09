@@ -1,0 +1,1 @@
+{"cc":0,"responsecode":200,"data":{"receivedbatch":18,"pendingbatch":6,"certifiedbatch":13,"rejectedbatch":1},"responsemessage":"","patterns":"","responsStatus":true,"totalpage":0,"currentpage":0}
